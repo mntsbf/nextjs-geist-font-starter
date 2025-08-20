@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>BCR Abogados | Asesoría Legal Corporativa</title>
+  <meta name="description" content="BCR Abogados: asesoría legal corporativa para empresas. Prevención legal, defensa integral y cumplimiento inteligente (Ley 21.595).">
+  <link rel="canonical" href="https://www.eybabogados.cl/bcr/">
+  <link rel="icon" href="/favicon-32x32.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand-900:#222c31;
+      --brand-850:#253038;
+      --brand-800:#2b3840;
+      --brand-700:#33424b;
+      --brand-600:#3b4d57;
+      --paper:#f4f6f8;
+      --ink:#1c252b;
+      --muted:#64717b;
+      --line:#e6eaed;
+      --accent:#ff6b3d;
+      --hero-img:url('/static/img/bcr/hero.jpg');
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--ink);
+      background:var(--paper);
+      line-height:1.55;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+
+    /* Top subtle bar reminiscent of the mockup */
+    .topbar{
+      background:linear-gradient(90deg,#19c3d3, #7a52ff);
+      height:6px;
+      border-bottom:1px solid rgba(0,0,0,.06);
+    }
+
+    /* ----- HERO dividido (foto + panel) ----- */
+    .hero{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      min-height: 60vh;
+      background:#000;
+      isolation:isolate;
+    }
+    .hero .media{
+      position:relative;
+      background-image: var(--hero-img);
+      background-size: cover;
+      background-position: center;
+      filter:saturate(.95) contrast(1.03);
+      transform: scale(1.04);
+      animation: heroIn 900ms cubic-bezier(.2,.65,.22,1) both;
+    }
+    .hero .media::after{
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(180deg, rgba(0,0,0,.10), rgba(0,0,0,.18));
+      pointer-events:none;
+    }
+    .hero .panel{
+      background: var(--brand-800);
+      color:#fff;
+      display:flex;
+      align-items:center;
+      padding: 56px 40px;
+      box-shadow: -12px 0 28px rgba(0,0,0,.18);
+      animation: panelIn 700ms 120ms cubic-bezier(.2,.65,.22,1) both;
+    }
+    .brand-kicker{
+      font-size:.9rem;
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      opacity:.9;
+      margin:0 0 6px;
+    }
+    h1{
+      font-family: "Merriweather", Georgia, serif;
+      font-size: clamp(2rem, 4.6vw, 3.2rem);
+      line-height:1.1;
+      margin:.2rem 0 .6rem;
+    }
+    h1 em{
+      font-style: italic;
+      color: var(--accent);
+      text-shadow: 0 2px 12px rgba(255,107,61,.2);
+    }
+    .hero p{
+      margin:0;
+      max-width: 36ch;
+      opacity:.95;
+    }
+    .hero .cta{
+      margin-top:16px;
+      display:flex; gap:12px; flex-wrap:wrap;
+    }
+    .btn{
+      display:inline-block;
+      padding:10px 16px;
+      border-radius:28px;
+      font-weight:700;
+      text-decoration:none;
+      border:2px solid transparent;
+      transition: transform .28s ease, box-shadow .28s ease, background-color .28s ease, color .28s ease;
+    }
+    .btn.light{ background:#fff; color:var(--brand-800); }
+    .btn.ghost{ background:transparent; color:#fff; border-color:#fff; }
+    .btn:hover{ transform: translateY(-2px); box-shadow:0 8px 20px rgba(0,0,0,.18); }
+
+    .wrap{ max-width:1100px; margin:0 auto; padding:56px 20px; }
+
+    /* ----- 3 bloques oscuros ----- */
+    .pill-grid{
+      display:grid; gap:18px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: -36px;
+    }
+    .pill{
+      background: var(--brand-700);
+      color:#fff;
+      border-radius:14px;
+      padding:18px 18px 16px;
+      border:1px solid rgba(255,255,255,.08);
+      box-shadow: 0 8px 18px rgba(0,0,0,.08);
+      transition: transform .28s ease, box-shadow .28s ease;
+    }
+    .pill:hover{ transform: translateY(-4px); box-shadow:0 14px 28px rgba(0,0,0,.18); }
+    .pill h3{
+      margin:0 0 6px;
+      font-size:1.05rem;
+      font-weight:700;
+    }
+    .pill p{ margin:0; color: #e7edf2; opacity:.95; }
+
+    /* ----- Dos columnas “Quiénes / Qué hacemos” ----- */
+    .twocol{
+      display:grid; gap:28px;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 34px;
+    }
+    .twocol h2{
+      font-family:"Merriweather", Georgia, serif;
+      font-size:1.5rem; margin:.2rem 0 .6rem;
+      color:var(--brand-900);
+    }
+    .twocol p{ color:var(--muted); }
+
+    /* ----- Cintillo de contacto ----- */
+    .contact-band{
+      background: var(--brand-900);
+      color:#cfd8dd;
+      border-top: 1px solid rgba(255,255,255,.07);
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      margin-top: 36px;
+      padding: 18px 20px;
+    }
+    .contact-inner{
+      max-width:1100px; margin:0 auto;
+      display:grid; gap:14px;
+      grid-template-columns: 1.2fr repeat(3, 1fr);
+      align-items:center;
+    }
+    .contact-legend{ font-weight:600; color:#fff; }
+    .ci{ display:flex; align-items:center; gap:10px; }
+    .ci svg{ flex:0 0 18px; opacity:.9 }
+
+    footer{
+      text-align:center; color:#6b747b;
+      padding:24px 20px;
+    }
+
+    /* --- Reveal animations (scroll) --- */
+    .reveal{ opacity:0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; will-change: transform, opacity; }
+    .reveal.in{ opacity:1; transform:none; }
+
+    /* Keyframes for hero */
+    @keyframes heroIn{ from{ transform:scale(1.1); filter:saturate(.85) contrast(1); opacity:.0 } to{ transform:scale(1.04); opacity:1 } }
+    @keyframes panelIn{ from{ opacity:0; transform: translateX(20px) } to{ opacity:1; transform:none } }
+
+    /* Accessibility: respect reduced motion */
+    @media (prefers-reduced-motion: reduce){
+      .btn{ transition:none }
+      .pill{ transition:none }
+      .hero .media, .hero .panel{ animation:none }
+      .reveal{ transition:none }
+    }
+
+    /* ----- Responsive ----- */
+    @media (max-width: 1000px){
+      .hero{ grid-template-columns: 1fr; min-height: auto; }
+      .hero .panel{ padding: 36px 22px; }
+      .pill-grid{ grid-template-columns: 1fr; margin-top: 0; }
+      .twocol{ grid-template-columns: 1fr; }
+      .contact-inner{ grid-template-columns: 1fr; gap:10px; text-align:center; }
+      .ci{ justify-content:center; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar" aria-hidden="true"></div>
+
+  <section class="hero" aria-label="Encabezado BCR">
+    <div class="media" role="img" aria-label="Análisis y gráficos empresariales"></div>
+    <div class="panel">
+      <div class="reveal in" style="transition-delay:.18s">
+        <div class="brand-kicker">Asesoría Legal Corporativa</div>
+        <h1>Abogados que entienden <em>tu negocio</em></h1>
+        <p>Servicios legales estratégicos para empresas: prevención de riesgos, defensa efectiva y cumplimiento inteligente.</p>
+        <div class="cta">
+          <a class="btn light" href="https://wa.me/56952072845" rel="noopener">Agenda por WhatsApp</a>
+          <a class="btn ghost" href="mailto:bcr@eybabogados.cl">Escríbenos</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <section class="pill-grid" aria-label="Áreas de servicio">
+      <article class="pill reveal" style="transition-delay:.05s">
+        <h3>Prevención Legal</h3>
+        <p>Identifica riesgos antes de que ocurran y protege tu empresa con acciones legales estratégicas y oportunas.</p>
+      </article>
+      <article class="pill reveal" style="transition-delay:.15s">
+        <h3>Defensa Integral</h3>
+        <p>Actuamos con rapidez y precisión en conflictos penales, laborales o regulatorios, cuidando tu reputación y operación.</p>
+      </article>
+      <article class="pill reveal" style="transition-delay:.25s">
+        <h3>Cumplimiento Inteligente</h3>
+        <p>Implementa modelos y protocolos que fortalezcan tu gobierno corporativo y aseguren el cumplimiento normativo (Ley 21.595).</p>
+      </article>
+    </section>
+
+    <section class="twocol" aria-label="Sobre BCR">
+      <div class="reveal" style="transition-delay:.1s">
+        <h2>¿Quiénes somos?</h2>
+        <p>Nuestro equipo, con sede en Concepción, está liderado por abogados con sólida experiencia en defensa penal, derecho laboral y cumplimiento normativo. Nos distingue la cercanía, accesibilidad, transparencia, el enfoque estratégico y el compromiso con cada cliente.</p>
+      </div>
+      <div class="reveal" style="transition-delay:.2s">
+        <h2>¿Qué hacemos?</h2>
+        <p>Ofrecemos asesoría legal integral para empresas: revisión de documentos, licitaciones y contratos; implementación de modelos de cumplimiento (Ley 21.595); defensa en procesos judiciales y apoyo continuo en decisiones clave que impactan tu operación.</p>
+      </div>
+    </section>
+  </main>
+
+  <section class="contact-band" aria-label="Contacto">
+    <div class="contact-inner">
+      <div class="contact-legend reveal" style="transition-delay:.05s">Agenda una reunión con nuestro equipo</div>
+
+      <div class="ci reveal" style="transition-delay:.1s" title="Dirección">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.25 7 13 7 13s7-7.75 7-13a7 7 0 0 0-7-7Zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5Z"/></svg>
+        <span>Av. O'Higgins 650, of. 604, Concepción</span>
+      </div>
+
+      <div class="ci reveal" style="transition-delay:.18s" title="WhatsApp">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 15.5c-1.25 0-2.47-.2-3.6-.6a1 1 0 0 0-.97.12l-2.2 1.47a9.06 9.06 0 0 1-4.42-4.42l1.47-2.2a1 1 0 0 0 .12-.97 11.9 11.9 0 0 1-.6-3.6A1 1 0 0 0 8.9 1H4a1 1 0 0 0-1 1C3 13.6 10.4 21 22 21a1 1 0 0 0 1-1v-4.9a1 1 0 0 0-1-1h-2Z"/></svg>
+        <a href="https://wa.me/56952072845" style="color:#cfd8dd; text-decoration:none;">+56 9 52072845</a>
+      </div>
+
+      <div class="ci reveal" style="transition-delay:.26s" title="Correo">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20 4H4a2 2 0 0 0-2 2v1l10 6 10-6V6a2 2 0 0 0-2-2Zm0 6.236-8 4.8-8-4.8V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-7.764Z"/></svg>
+        <a href="mailto:bcr@eybabogados.cl" style="color:#cfd8dd; text-decoration:none;">bcr@eybabogados.cl</a>
+      </div>
+
+      <div class="ci reveal" style="transition-delay:.34s" title="Sitio">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 1 0 .001 20.001A10 10 0 0 0 12 2Zm6.93 6h-3.18a15.7 15.7 0 0 0-1.26-3.31A8.03 8.03 0 0 1 18.93 8ZM12 4.07c.7.9 1.57 2.44 2.07 3.93H9.93c.5-1.49 1.37-3.03 2.07-3.93ZM5.07 8h3.18c.3-1.08.74-2.2 1.26-3.31A8.03 8.03 0 0 0 5.07 8Zm0 8a8.03 8.03 0 0 1 4.44-3.31c-.52-1.1-.96-2.22-1.26-3.31H5.07a8 8 0 0 0 0 6.62Zm3.18 0H5.07A8.03 8.03 0 0 0 9.51 19.31c-.52-1.1-.96-2.22-1.26-3.31Zm1.68 0c.5 1.49 1.37 3.03 2.07 3.93.7-.9 1.57-2.44 2.07-3.93H9.93Zm5.49 0c-.3 1.08-.74 2.2-1.26 3.31A8.03 8.03 0 0 0 18.93 16Zm0-2h-3.18c-.3 1.09-.74 2.21-1.26 3.31A8.03 8.03 0 0 0 18.93 14Zm-6.86 0H5.07a8.03 8.03 0 0 1 4.44-3.31c.3 1.09.74 2.21 1.26 3.31ZM12 19.93c-.7-.9-1.57-2.44-2.07-3.93h4.14c-.5 1.49-1.37 3.03-2.07 3.93Z"/></svg>
+        <a href="https://www.eybabogados.cl/bcr" style="color:#cfd8dd; text-decoration:none;">eybabogados.cl/bcr</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <small>© 2025 BCR Abogados · Asociada a E&amp;B</small>
+  </footer>
+
+  <script>
+    // Intersection Observer: reveal-on-scroll
+    (function(){
+      const elements = Array.from(document.querySelectorAll('.reveal'));
+      if(!('IntersectionObserver' in window)){
+        elements.forEach(e=>e.classList.add('in'));
+        return;
+      }
+      const observer = new IntersectionObserver((entries)=>{
+        for(const entry of entries){
+          if(entry.isIntersecting){
+            entry.target.classList.add('in');
+            observer.unobserve(entry.target);
+          }
+        }
+      }, { threshold: .15 });
+      elements.forEach(el=>observer.observe(el));
+    })();
+  </script>
+</body>
+</html>
+
